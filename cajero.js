@@ -36,11 +36,11 @@ function entregarDinero(){
 	var billetesAEntregar = [];
 	var cuadroDeTexto = document.getElementById("dinero");
 	montoSolicitado = parseInt(cuadroDeTexto.value);
-	
+
 	for(var billete of caja){
 		if(montoSolicitado > 0){
 			division = Math.floor(montoSolicitado / billete.valor);
-			
+
 			if(division > billete.cantidad){
 				papeles = billete.cantidad;
 			}else{
@@ -61,17 +61,17 @@ function entregarDinero(){
 		}
 
 		resultado.innerHTML += "Aquí tiene el dinero solicitado: <br/>";
-		for(var entregado of billetesAEntregar){	
+		for(var entregado of billetesAEntregar){
 			for(var i = 0 ; i < entregado.cantidad ; i++){
-				resultado.innerHTML += "<img src=" + entregado.imagen.src + "/>";
+				resultado.innerHTML += `<img src="${entregado.imagen.src}"/>`;
 			}
 			if(entregado.cantidad != 0){
-				resultado.innerHTML += "<br/>"
+				resultado.innerHTML += "<br/>";
 			}
 		}
-		resultado.innerHTML += "Tras la extracción dispone de un saldo de: $" + saldoRestante + "<br/>";
+		resultado.innerHTML += `Tras la extracción dispone de un saldo de: $${saldoRestante}<br/>`;
 	}else{
-		resultado.innerHTML += "Este cajero no dispone de los billetes para entregar la suma solicitada, prube con otro monto. <br/>";
+		resultado.innerHTML += "Este cajero no dispone de los billetes para entregar la suma solicitada, pruebe con otro monto. <br/>";
 	}
 	resultado.innerHTML += "<hr/>";
 }
